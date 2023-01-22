@@ -11,7 +11,7 @@ function style_barrios(feature){
 
 //carga la capa como geojson desde la gdb
 var barrios = L.geoJSON();
-$.post("php/cargar_barrios.php",
+$.post("conect/cargar_barrios.php",
 	{
 		peticion: 'cargar_barrios',
 	},function (data, status, feature)
