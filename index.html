@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equip="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" type="text/css" href="lib/leaflet/leaflet.css">
+		<link rel="stylesheet" type="text/css" href="lib/Leaflet-MiniMap-master/dist/Control.MiniMap.min.css">
+		<link rel="stylesheet" type="text/css" href="lib/Leaflet.Legend-master/src/leaflet.legend.css">
+		<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="lib/posicion/dist/L.Control.Locate.css">
+		<link rel="stylesheet" type="text/css" href="lib/geocodificar/l.geosearch.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.EasyButton/2.4.0/easy-button.css">
+
+
+		<link rel="stylesheet" type="text/css" href="css/style_general.css">
+		<link rel="stylesheet" type="text/css" href="css/style_titulo.css">
+		<link rel="stylesheet" type="text/css" href="css/style_mapa.css">
+		<link rel="stylesheet" type="text/css" href="css/style_menu_herramientas.css">
+		<link rel="stylesheet" type="text/css" href="css/style_tools_button.css">
+		<link rel="stylesheet" type="text/css" href="css/style_bt_herramientas.css">
+		<link rel="stylesheet" type="text/css" href="css/style_bt_info.css">
+		<link rel="stylesheet" type="text/css" href="css/style_menu_info.css">
+
+
+		<link rel="stylesheet" type="text/css" href="css/style_leyenda_geodemanda.css">
+		<link rel="stylesheet" type="text/css" href="css/style_leyenda_geocompetencia.css">
+		<link rel="stylesheet" type="text/css" href="css/style_leyenda_zonas.css">
+
+
+	</head>
+
+	<body>
+
+		<title>Geomarketing</title>
+		<h1>Geomarketing de mercados en la comuna 8 de Cali</h1>
+
+		<div id="map" style="z-index:0"></div>
+		
+		<button type="button" id="boton_herramientas" onclick="desplegar_menu_herramientas()">
+			<img src="images/herramientas.png" width="100%" height="100%">
+		</button>
+
+		<button type="button" id="boton_info" onclick="desplegar_menu_info()">
+			<img src="images/estadisticas.png" width="100%" height="100%">
+		</button>
+
+		<div id="menu_herramientas" style="z-index:9999">
+			
+			<h2><p>Herramientas</p></h2>
+
+			<div class="tools_button">
+				<h3 id="text_tools_geode" align="left">Visualizar geodemanda</h3>
+				<input type="checkbox" id="btn_geodemanda" onclick="geodemanda()">
+				<label for="btn_geodemanda" class="lbl_geodemanda"></label>
+
+				<h3 id="text_tools_geocom" align="left">Visualizar geocompetencia</h3>
+				<input type="checkbox" id="btn_geocompetencia" onclick="geocompetencia()">
+				<label for="btn_geocompetencia" class="lbl_geocompetencia"></label>
+
+				<h3 id="text_tools_zonas" align="left">Visualizar zonas potenciales</h3>
+				<input type="checkbox" id="btn_zonas"  onclick="zonas_posibles()">
+				<label for="btn_zonas" class="lbl_zonas"></label>
+			</div>
+
+		</div>
+
+		<div id="menu_info" style="z-index:9999">
+		</div>
+
+		<div id="leyenda_geodemanda" style="z-index:9999">
+			<h2><p>Geodemanda por manzanas</p></h2>
+			
+			<h6 id="texto_alto" aling="left">Alto (180-240 habitantes promedio)</h6>
+			<label for="texto_alto" class="lbl_alto"></label>
+
+			<h6 id="texto_medio" aling="left">Medio (119-179 habitantes promedio)</h6>
+			<label for="texto_medio" class="lbl_medio"></label>
+
+			<h6 id="texto_bajo" aling="left">Bajo (58-118 habitantes promedio)</h6>
+			<label for="texto_bajo" class="lbl_bajo"></label>
+
+		</div>
+
+		<div id="leyenda_geocompetencia" style="z-index:9999">
+
+			<h2><p >Geocompetencia por cubertura</p></h2>
+			
+			<h6 id="texto_geocompetencia" aling="left">Áreas de cobertura de los supermercados y corredores urbanos</h6>
+			<label for="texto_geocompetencia" class="lbl_leye_geoco"></label>
+		</div>
+
+		<div id="leyenda_zonas" style="z-index:9999">
+
+			<h2><p>Zonas potenciales</p></h2>
+			
+			<h6 id="texto_zonas" aling="left">Área donde no hay geocompetencia</h6>
+			<label for="texto_zonas" class="lbl_leye_zonas"></label>
+		</div>
+		
+		<script src="lib/leaflet/leaflet.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.js" type="text/javascript"></script>
+		<script src="lib/Leaflet-MiniMap-master/dist/Control.MiniMap.min.js" type="text/javascript"></script>
+		<script src="lib/Leaflet.Legend-master/src/leaflet.legend.js" type="text/javascript"></script>
+		<script src="lib/posicion/src/L.Control.Locate.js" type="text/javascript"></script>
+		<script src="lib/geocodificar/l.control.geosearch.js" type="text/javascript"></script>
+		<script src="lib/geocodificar/l.geosearch.provider.esri.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.EasyButton/2.4.0/easy-button.js" type="text/javascript"></script>
+
+
+		<script src="js/mapa_base.js" type="text/javascript"></script>
+		<script src="js/minimapa.js" type="text/javascript"></script>
+		<script src="js/localizacion.js" type="text/javascript"></script>
+		<script src="js/geocodificar.js" type="text/javascript"></script>
+		<script src="js/boton_herramientas.js" type="text/javascript"></script>
+		<script src="js/boton_info.js" type="text/javascript"></script>
+		<script src="js/cajon_info.js" type="text/javascript"></script>
+
+		<script src="js/barrios.js" type="text/javascript"></script>
+		<script src="js/manzanas.js" type="text/javascript"></script>
+		<script src="js/supermercados.js" type="text/javascript"></script>
+		<script src="js/corredores_urbanos.js" type="text/javascript"></script>
+		<script src="js/leyenda.js" type="text/javascript"></script>
+
+		<script src="js/geodemanda.js" type="text/javascript"></script>
+		<script src="js/geocompetencia.js" type="text/javascript"></script>
+		<script src="js/zonas_posibles.js" type="text/javascript"></script>
+		<script src="js/btf.js" type="text/javascript"></script>
+
+
+	</body>
+
+</html>

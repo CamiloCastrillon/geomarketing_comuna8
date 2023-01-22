@@ -1,0 +1,37 @@
+h4{
+	position: absolute;
+	font-family: monospace;
+	font-size: 15px;
+	color:  #FFFFFF;
+	float: left;
+	margin-left: 5px;
+}
+
+h5{
+	position: absolute;
+	font-family: monospace;
+	font-size: 20px;
+	color:  #BCA9F5;
+	margin-left: 5px;
+}
+
+#menu_info{
+	position: absolute;
+	display: none;
+	width: 0px;
+	height: 500px;
+	background: #1B0A2A;
+	opacity: 0.7;
+	top: 6%;
+	left: 100%;
+	float: right;
+	transition:all 0.5s linear;
+	border-radius: 20px;
+	margin: 350px 0px 0px -385px;
+}
+
+#menu_info.active{
+	display:  block;
+	width:  380px;
+
+}

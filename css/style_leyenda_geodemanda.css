@@ -1,0 +1,66 @@
+h6{
+	position: relative;
+	font-family: monospace;
+	font-size: 150%;
+	color:  #FFFFFF;
+	float: right;
+	margin-top: 22px;
+	margin-right: 5px;
+	margin-left: 60px;
+}
+
+#leyenda_geodemanda{
+	position: absolute;
+	display: none;
+	width: 0px;
+	height: 180px;
+	background: #1B0A2A;
+	opacity: 0.7;
+	left: 0%;
+	top: 6%;
+	float: left;
+	transition:all 0.5s linear;
+	border-radius: 20px;
+	margin-top: 170px;
+	margin-left: 10px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+#leyenda_geodemanda.active{
+	display:  block;
+	width:  450px;
+}
+
+.lbl_alto{
+	position: absolute;
+	display: inline-block;
+	top: 50px;
+	height:25px;
+	width:50px;
+	margin-left: 5px;
+	border-radius: 5px;
+	background: #5EFF00;
+}
+
+.lbl_medio{
+	position: absolute;
+	display: inline-block;
+	top: 95px;
+	height:25px;
+	width:50px;
+	margin-left: 5px;
+	border-radius: 5px;
+	background: #FFEA00;
+}
+
+.lbl_bajo{
+	position: absolute;
+	display: inline-block;
+	top: 140px;
+	height:25px;
+	width:50px;
+	margin-left: 5px;
+	border-radius: 5px;
+	background: #FFAB37;
+}

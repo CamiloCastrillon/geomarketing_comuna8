@@ -1,0 +1,141 @@
+.tools_button{
+	margin: 2.5%;
+}
+
+/*GEODEMANDA*/
+.lbl_geodemanda{
+	position: absolute;
+	display: inline-block;
+	width: 55px;
+	height: 30px;
+	background: #aaa;
+	border-radius: 100px;
+	cursor: pointer;
+	left: 84%;
+	top: 30%;
+}
+
+#btn_geodemanda:checked~ .lbl_geodemanda{
+	background: green;
+	box-shadow: 	0 0 15px #5EFF00,
+					0 0 30px #5EFF0066;
+}
+
+.lbl_geodemanda:after{
+	position:  absolute;
+	content:  '';
+	width: 22px;
+	height: 22px;
+	background: #fff;
+	border-radius: 100px;
+	top: 4px;
+	left: 5px;
+	transition: 0.3s;
+}
+
+#btn_geodemanda:checked~ .lbl_geodemanda:after{
+	left: 28px;
+	box-shadow: 	0 0 15px #5EFF00,
+					0 0 30px #5EFF0066;
+}
+
+#btn_geodemanda{
+	display: none;
+}
+
+	h3{
+		position: relative;
+		font-family: monospace;
+		font-size: 150%;
+		color:  #FFFFFF;
+		float: left;
+		margin-top: 10%;
+	}
+
+	h3.active{
+		color: #DCFFC6;
+		text-shadow: 	0 0 4px #00FF02,
+						0 0 8px #CBFFCC;
+	}
+
+/*GEODCOMPETENCIA*/
+.lbl_geocompetencia{
+	position: absolute;
+	display: inline-block;
+	width: 55px;
+	height: 30px;
+	background: #aaa;
+	border-radius: 100px;
+	cursor: pointer;
+	left: 84%;
+	top: 54%;
+}
+
+#btn_geocompetencia:checked~ .lbl_geocompetencia{
+	background: green;
+	box-shadow: 	0 0 15px #5EFF00,
+					0 0 30px #5EFF0066;
+}
+
+.lbl_geocompetencia:after{
+	position:  absolute;
+	content:  '';
+	width: 22px;
+	height: 22px;
+	background: #fff;
+	border-radius: 100px;
+	top: 4px;
+	left: 5px;
+	transition: 0.3s;
+}
+
+#btn_geocompetencia:checked~ .lbl_geocompetencia:after{
+	left: 28px;
+	box-shadow: 	0 0 15px #5EFF00,
+					0 0 30px #5EFF0066;
+}
+
+#btn_geocompetencia{
+	display: none;
+}
+
+/*ZONAS*/
+.lbl_zonas{
+	position: absolute;
+	display: inline-block;
+	width: 55px;
+	height: 30px;
+	background: #aaa;
+	border-radius: 100px;
+	cursor: pointer;
+	left: 84%;
+	top: 78%;
+}
+
+#btn_zonas:checked~ .lbl_zonas{
+	background: green;
+	box-shadow: 	0 0 15px #5EFF00,
+					0 0 30px #5EFF0066;
+}
+
+.lbl_zonas:after{
+	position:  absolute;
+	content:  '';
+	width: 22px;
+	height: 22px;
+	background: #fff;
+	border-radius: 100px;
+	top: 4px;
+	left: 5px;
+	transition: 0.3s;
+}
+
+#btn_zonas:checked~ .lbl_zonas:after{
+	left: 28px;
+	box-shadow: 	0 0 15px #5EFF00,
+					0 0 30px #5EFF0066;
+}
+
+#btn_zonas{
+	display: none;
+}
